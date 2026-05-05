@@ -126,18 +126,21 @@
 </head>
 <body class="bg-background text-on-background antialiased">
 <!-- TopAppBar -->
-<header class="bg-surface-container-lowest border-b border-outline-variant h-16 fixed top-0 left-0 w-full z-50 flex items-center justify-between px-6 shadow-sm">
-<div class="flex items-center gap-4">
+<header class="bg-surface-container-lowest border-b border-outline-variant h-16 fixed top-0 left-0 w-full z-50 flex items-center justify-between px-4 md:px-6 shadow-sm">
+<div class="flex items-center gap-2 md:gap-4">
+<button id="menu-toggle" class="md:hidden p-1 text-on-surface-variant hover:bg-surface-container rounded-lg transition-colors">
+<span class="material-symbols-outlined">menu</span>
+</button>
 <div class="flex items-center gap-2">
-<span class="text-primary font-bold text-2xl tracking-tighter">MedSupply</span>
+<span class="text-primary font-bold text-xl md:text-2xl tracking-tighter">MedSupply</span>
 </div>
-<div class="h-8 w-px bg-outline-variant"></div>
-<div class="flex flex-col">
+<div class="hidden md:block h-8 w-px bg-outline-variant"></div>
+<div class="hidden md:flex flex-col">
 <span class="text-on-surface font-semibold text-sm leading-tight">Almoxarifado Central</span>
 <span class="text-on-surface-variant text-[10px] uppercase font-bold tracking-wider">Unidade Hospitalar</span>
 </div>
 </div>
-<div class="flex items-center gap-4 flex-1 max-w-xl mx-8">
+<div class="hidden sm:flex items-center gap-4 flex-1 max-w-xl mx-8">
 <div class="relative w-full">
 <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-lg">search</span>
 <input class="w-full bg-surface-container-low border-none rounded-lg pl-10 pr-4 py-2 text-sm focus:ring-2 focus:ring-primary/20 transition-all" placeholder="Buscar por produto, SKU ou categoria..." type="text"/>
@@ -161,7 +164,7 @@
 </div>
 </header>
 <!-- SideNavBar -->
-<aside class="fixed left-0 top-16 w-64 h-[calc(100vh-64px)] bg-surface-container-low border-r border-outline-variant p-4 flex flex-col z-40">
+<aside id="sidebar" class="fixed left-0 top-16 w-64 h-[calc(100vh-64px)] bg-surface-container-low border-r border-outline-variant p-4 flex-col z-40 transition-transform duration-300 -translate-x-full md:translate-x-0 flex md:flex bg-opacity-100 bg-surface-container-low">
 <nav class="flex-1 space-y-1">
 <a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container rounded-lg transition-all group" href="dashboard.html">
 <span class="material-symbols-outlined text-xl group-hover:text-primary">dashboard</span>
@@ -201,7 +204,7 @@
 </div>
 </aside>
 <!-- Main Content -->
-<main class="ml-64 mt-16 p-8 pr-[360px] min-h-screen">
+<main class="ml-0 md:ml-64 mt-16 p-4 md:p-8 pr-4 lg:pr-[360px] min-h-screen">
 <!-- Header Section -->
 <div class="flex items-end justify-between mb-8">
 <div>
@@ -349,7 +352,7 @@
 </div>
 </main>
 <!-- Context Panel (Right Side) -->
-<aside class="fixed right-0 top-16 w-80 h-[calc(100vh-64px)] bg-surface-container-lowest border-l border-outline-variant p-6 z-40 overflow-y-auto custom-scrollbar">
+<aside class="hidden lg:block fixed right-0 top-16 w-80 h-[calc(100vh-64px)] bg-surface-container-lowest border-l border-outline-variant p-6 z-40 overflow-y-auto custom-scrollbar">
 <h2 class="text-lg font-bold text-on-surface mb-6 flex items-center justify-between">
             Últimas Solicitações
             <span class="text-xs font-bold text-primary bg-primary/10 px-2 py-0.5 rounded-full">3 Ativas</span>
@@ -404,5 +407,15 @@
             Abrir Carrinho de Requisição
         </div>
 </a>
-
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const menuToggle = document.getElementById('menu-toggle');
+        const sidebar = document.getElementById('sidebar');
+        if (menuToggle && sidebar) {
+            menuToggle.addEventListener('click', (e) => {
+                sidebar.classList.toggle('-translate-x-full');
+            });
+        }
+    });
+</script>
 </body></html>
