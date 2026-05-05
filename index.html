@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+
+<html lang="pt-br"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary-fixed-variant": "#005049",
+                        "on-surface-variant": "#424750",
+                        "secondary-fixed": "#d3e4fe",
+                        "tertiary-fixed": "#89f5e7",
+                        "on-primary-fixed-variant": "#0e4782",
+                        "on-secondary": "#ffffff",
+                        "on-error": "#ffffff",
+                        "outline": "#737781",
+                        "primary": "#00386b",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary-fixed-dim": "#b7c8e1",
+                        "tertiary-fixed-dim": "#6bd8cb",
+                        "inverse-surface": "#2d3133",
+                        "primary-container": "#1b4f8a",
+                        "background": "#f7f9fb",
+                        "surface": "#f7f9fb",
+                        "secondary": "#505f76",
+                        "inverse-primary": "#a6c8ff",
+                        "on-secondary-container": "#54647a",
+                        "on-error-container": "#93000a",
+                        "surface-variant": "#e0e3e5",
+                        "primary-fixed-dim": "#a6c8ff",
+                        "secondary-container": "#d0e1fb",
+                        "surface-dim": "#d8dadc",
+                        "error": "#ba1a1a",
+                        "surface-bright": "#f7f9fb",
+                        "inverse-on-surface": "#eff1f3",
+                        "on-secondary-fixed-variant": "#38485d",
+                        "on-primary": "#ffffff",
+                        "outline-variant": "#c2c6d1",
+                        "tertiary-container": "#005951",
+                        "surface-tint": "#305f9b",
+                        "surface-container-high": "#e6e8ea",
+                        "surface-container-highest": "#e0e3e5",
+                        "on-tertiary-container": "#65d2c5",
+                        "on-secondary-fixed": "#0b1c30",
+                        "primary-fixed": "#d4e3ff",
+                        "on-surface": "#191c1e",
+                        "tertiary": "#00403a",
+                        "surface-container-low": "#f2f4f6",
+                        "error-container": "#ffdad6",
+                        "on-primary-container": "#9ac2ff",
+                        "on-tertiary": "#ffffff",
+                        "on-tertiary-fixed": "#00201d",
+                        "surface-container": "#eceef0",
+                        "on-background": "#191c1e",
+                        "on-primary-fixed": "#001c3a"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "xl": "32px",
+                        "md": "16px",
+                        "xs": "4px",
+                        "base": "4px",
+                        "xxl": "48px",
+                        "margin": "24px",
+                        "sm": "8px",
+                        "lg": "24px",
+                        "gutter": "16px"
+                    },
+                    "fontFamily": {
+                        "data-mono": ["Inter"],
+                        "h2": ["Inter"],
+                        "label-md": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "body-md": ["Inter"],
+                        "h3": ["Inter"],
+                        "h1": ["Inter"]
+                    },
+                    "fontSize": {
+                        "data-mono": ["14px", {"lineHeight": "1.4", "letterSpacing": "-0.01em", "fontWeight": "500"}],
+                        "h2": ["24px", {"lineHeight": "1.3", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "label-md": ["12px", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "body-sm": ["14px", {"lineHeight": "1.5", "letterSpacing": "0", "fontWeight": "400"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "letterSpacing": "0", "fontWeight": "400"}],
+                        "body-md": ["16px", {"lineHeight": "1.5", "letterSpacing": "0", "fontWeight": "400"}],
+                        "h3": ["20px", {"lineHeight": "1.4", "letterSpacing": "0", "fontWeight": "600"}],
+                        "h1": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            background-color: #f7f9fb;
+            font-family: 'Inter', sans-serif;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .profile-card:hover {
+            box-shadow: 0px 4px 6px rgba(27, 79, 138, 0.05);
+            border-color: #1b4f8a;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col antialiased">
+<!-- Top Navigation Bar (Hidden brand layout as per JSON guidance for specialized screens) -->
+<header class="flex justify-between items-center w-full px-6 h-16 bg-white border-b border-slate-200 shadow-sm fixed top-0 z-50">
+<div class="text-xl font-bold tracking-tighter text-blue-900">
+            MedSupply
+        </div>
+<div class="flex items-center gap-4 text-slate-500 font-inter text-sm font-medium tracking-tight">
+<span class="hidden md:block">Unidade: Hospital Central</span>
+<a href="configuracao.html" class="flex items-center justify-center hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-xl">settings</span>
+</a>
+<span class="material-symbols-outlined text-xl">help</span>
+</div>
+</header>
+<!-- Main Selection Canvas -->
+<main class="flex-grow flex items-center justify-center pt-16 px-4">
+<div class="max-w-4xl w-full flex flex-col items-center">
+<!-- Branding & Intro -->
+<div class="text-center mb-xl">
+<div class="inline-flex items-center justify-center w-16 h-16 bg-primary-container rounded-xl mb-md">
+<span class="material-symbols-outlined text-white text-4xl" data-weight="fill" style="font-variation-settings: 'FILL' 1;">medical_services</span>
+</div>
+<h1 class="font-h1 text-h1 text-primary mb-sm">Bem-vindo ao MedSupply</h1>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-lg mx-auto">
+                    Gestão inteligente de suprimentos médicos. Selecione seu perfil de acesso para gerenciar requisições e controle de estoque com eficiência operacional.
+                </p>
+</div>
+<!-- Profile Selection Cards (Bento-style layout) -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-lg w-full">
+<!-- Option 1: Solicitante -->
+<a href="solicitacao_suprimentos.html" class="profile-card group relative bg-white border border-outline-variant rounded-xl p-xl flex flex-col items-start text-left transition-all duration-200">
+<div class="w-14 h-14 bg-secondary-container rounded-lg flex items-center justify-center mb-lg transition-colors group-hover:bg-primary-container">
+<span class="material-symbols-outlined text-primary group-hover:text-white text-3xl">clinical_notes</span>
+</div>
+<div class="mb-xxl">
+<h2 class="font-h2 text-h2 text-primary mb-xs">Solicitante</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+                            Enfermeiros, técnicos e médicos. Realize pedidos de insumos, acompanhe status de entregas e visualize catálogos por ala.
+                        </p>
+</div>
+<div class="mt-auto flex items-center font-label-md text-label-md text-primary gap-sm">
+                        ACESSAR MÓDULO <span class="material-symbols-outlined text-md">arrow_forward</span>
+</div>
+<div class="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="px-2 py-1 bg-primary text-white text-[10px] font-bold rounded-sm">CLÍNICO</span>
+</div>
+</a>
+<!-- Option 2: Almoxarifado -->
+<a href="gestao_almoxarifado.html" class="profile-card group relative bg-white border border-outline-variant rounded-xl p-xl flex flex-col items-start text-left transition-all duration-200">
+<div class="w-14 h-14 bg-secondary-container rounded-lg flex items-center justify-center mb-lg transition-colors group-hover:bg-primary-container">
+<span class="material-symbols-outlined text-primary group-hover:text-white text-3xl">inventory_2</span>
+</div>
+<div class="mb-xxl">
+<h2 class="font-h2 text-h2 text-primary mb-xs">Almoxarifado</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+                            Operadores logísticos e gestores de estoque. Gerencie entradas, controle o inventário físico e despache requisições pendentes.
+                        </p>
+</div>
+<div class="mt-auto flex items-center font-label-md text-label-md text-primary gap-sm">
+                        ACESSAR MÓDULO <span class="material-symbols-outlined text-md">arrow_forward</span>
+</div>
+<div class="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="px-2 py-1 bg-primary text-white text-[10px] font-bold rounded-sm">OPERACIONAL</span>
+</div>
+</a>
+</div>
+<!-- Footer Meta -->
+<footer class="mt-xxl flex flex-col items-center gap-md">
+<div class="flex items-center gap-lg border-t border-slate-200 pt-md w-full justify-center">
+<div class="flex items-center gap-xs text-slate-500 font-data-mono text-data-mono">
+<span class="material-symbols-outlined text-sm">lock</span>
+                        Sessão Criptografada
+                    </div>
+<div class="flex items-center gap-xs text-slate-500 font-data-mono text-data-mono">
+<span class="material-symbols-outlined text-sm">verified_user</span>
+                        V. 2.4.0-hospital-stable
+                    </div>
+</div>
+<p class="font-body-sm text-body-sm text-slate-400">© 2024 MedSupply Logística Hospitalar S.A.</p>
+</footer>
+</div>
+</main>
+<!-- Side Graphic (Clinical Ambience) -->
+<div class="fixed bottom-0 right-0 p-lg opacity-20 pointer-events-none hidden lg:block">
+<img alt="Hospital Logistics Background" class="w-64 h-auto rounded-lg" data-alt="A clean, professional medical storage facility with organized metal shelving and blue plastic bins. The lighting is bright and clinical, using a palette of white, light grey, and deep navy blue. The image conveys a sense of high organization and technical reliability in a modern healthcare setting, with a shallow depth of field focus on medical supplies." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCl1NtijJsYBlE02k_zmkojYMfGdgQZ7plGhbcCWVM9mvA3YdN9vywTd8bPX4ZjfqmKv50H9wJYHjcRtIKPzYAMAE6YyYxZV0FGSZo4ytGXClOSiDSyCosWVt1h3vmSTjUzGyDjuNIxsXShPDZOJhpwKWt_SLcMaobFhBrPN3L_70P0Bm3HAghFRKyoQr7WgfHyVR8Hz6xDlJ310OhjQvXEY3t7L3wjpAZ92bpZPJ3E5HGreqOWi71wBg0LHjoR-iBuylxwIpWs"/>
+</div>
+
+</body></html>

@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="light">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MedSupply - Dashboard</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-variant": "#e0e3e5",
+                        "primary-fixed": "#d4e3ff",
+                        "on-background": "#191c1e",
+                        "inverse-on-surface": "#eff1f3",
+                        "inverse-surface": "#2d3133",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-tint": "#305f9b",
+                        "on-secondary": "#ffffff",
+                        "outline": "#737781",
+                        "secondary-fixed": "#d3e4fe",
+                        "on-primary-fixed-variant": "#0e4782",
+                        "on-surface-variant": "#424750",
+                        "surface-container-low": "#f2f4f6",
+                        "surface-container-high": "#e6e8ea",
+                        "on-tertiary-container": "#65d2c5",
+                        "tertiary-fixed-dim": "#6bd8cb",
+                        "tertiary-fixed": "#89f5e7",
+                        "tertiary": "#00403a",
+                        "on-error-container": "#93000a",
+                        "primary-fixed-dim": "#a6c8ff",
+                        "surface-container-highest": "#e0e3e5",
+                        "on-tertiary-fixed": "#00201d",
+                        "primary-container": "#1b4f8a",
+                        "primary": "#00386b",
+                        "on-surface": "#191c1e",
+                        "error": "#ba1a1a",
+                        "secondary-container": "#d0e1fb",
+                        "on-secondary-fixed": "#0b1c30",
+                        "secondary-fixed-dim": "#b7c8e1",
+                        "error-container": "#ffdad6",
+                        "on-tertiary-fixed-variant": "#005049",
+                        "on-primary-container": "#9ac2ff",
+                        "inverse-primary": "#a6c8ff",
+                        "on-secondary-container": "#54647a",
+                        "on-primary-fixed": "#001c3a",
+                        "on-primary": "#ffffff",
+                        "surface-container": "#eceef0",
+                        "secondary": "#505f76",
+                        "surface-bright": "#f7f9fb",
+                        "surface": "#f7f9fb",
+                        "on-error": "#ffffff",
+                        "outline-variant": "#c2c6d1",
+                        "on-tertiary": "#ffffff",
+                        "surface-dim": "#d8dadc",
+                        "tertiary-container": "#005951",
+                        "background": "#f7f9fb",
+                        "on-secondary-fixed-variant": "#38485d"
+                    },
+                    "fontFamily": {
+                        "body-md": ["Inter"]
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-outlined.fill {
+            font-variation-settings: 'FILL' 1;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background antialiased min-h-screen">
+
+<!-- TopAppBar -->
+<header class="bg-surface-container-lowest border-b border-outline-variant h-16 fixed top-0 left-0 w-full z-50 flex items-center justify-between px-6 shadow-sm">
+    <div class="flex items-center gap-4">
+        <div class="flex items-center gap-2">
+            <span class="text-primary font-bold text-2xl tracking-tighter">MedSupply</span>
+        </div>
+        <div class="h-8 w-px bg-outline-variant"></div>
+        <div class="flex flex-col">
+            <span class="text-on-surface font-semibold text-sm leading-tight">Almoxarifado Central</span>
+            <span class="text-on-surface-variant text-[10px] uppercase font-bold tracking-wider">Unidade Hospitalar</span>
+        </div>
+    </div>
+    
+    <div class="flex items-center gap-4 flex-1 max-w-xl mx-8">
+        <div class="relative w-full">
+            <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-lg">search</span>
+            <input type="text" placeholder="Buscar no sistema..." class="w-full bg-surface-container-low border-none rounded-lg pl-10 pr-4 py-2 text-sm focus:ring-2 focus:ring-primary/20 transition-all">
+        </div>
+    </div>
+
+    <div class="flex items-center gap-3">
+        <button class="p-2 text-on-surface-variant hover:bg-surface-container rounded-full relative transition-colors">
+            <span class="material-symbols-outlined">notifications</span>
+            <span class="absolute top-2 right-2 w-2 h-2 bg-error rounded-full ring-2 ring-surface-container-lowest"></span>
+        </button>
+        <a href="configuracao.html" class="p-2 text-on-surface-variant hover:bg-surface-container rounded-full transition-colors flex items-center justify-center">
+            <span class="material-symbols-outlined">settings</span>
+        </a>
+        <div class="flex items-center gap-3 ml-2 pl-4 border-l border-outline-variant">
+            <div class="text-right hidden sm:block">
+                <p class="text-xs font-bold text-on-surface">Almoxarife Sênior</p>
+                <p class="text-[10px] text-on-surface-variant">Turno Manhã</p>
+            </div>
+            <img alt="User profile" class="w-9 h-9 rounded-full border-2 border-primary/10 object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB6iJnm_7P37aw96WA6dTFLYynXfLUhz-dtWiJKpqiG_yhFAby1qlejEruq0BgsSiR-L9-bRm8Kaad0FqWIzuWH153rhJVZW-y-2lwDpCKiTkSU-UekHFyKT27lHP8-f8iybUD-gZHjPi0JTE2gi_4kor5cBl0MmMg4-dnn_bElmxcRik3a0TwjBjPE0PbZUoSW-26FqvLXGozVGUpfVGwSIc9bjyvQqgyzBhgqt123WxmVcpcw0LqNKusvhMoMZGDnLt1pXHwz"/>
+        </div>
+    </div>
+</header>
+
+<!-- SideNavBar -->
+<aside class="fixed left-0 top-16 w-64 h-[calc(100vh-64px)] bg-surface-container-low border-r border-outline-variant p-4 flex flex-col z-40">
+    <nav class="flex-1 space-y-1">
+        <a href="dashboard.html" class="flex items-center gap-3 px-4 py-3 bg-primary/10 text-primary rounded-lg transition-all shadow-sm">
+            <span class="material-symbols-outlined text-xl fill">dashboard</span>
+            <span class="text-sm font-bold">Dashboard</span>
+        </a>
+        <a href="gestao_almoxarifado.html" class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container rounded-lg transition-all group">
+            <span class="material-symbols-outlined text-xl group-hover:text-primary">inventory_2</span>
+            <span class="text-sm font-medium">Gestão de Estoque</span>
+        </a>
+        <a href="pedidos_compra.html" class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container rounded-lg transition-all group">
+            <span class="material-symbols-outlined text-xl group-hover:text-primary">receipt_long</span>
+            <span class="text-sm font-medium">Pedidos de Compra</span>
+        </a>
+        <a href="relatorios.html" class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container rounded-lg transition-all group">
+            <span class="material-symbols-outlined text-xl group-hover:text-primary">analytics</span>
+            <span class="text-sm font-medium">Relatórios</span>
+        </a>
+    </nav>
+
+    <div class="mt-auto space-y-4 pt-4 border-t border-outline-variant">
+        <button class="w-full bg-primary text-on-primary py-3 px-4 rounded-xl font-bold text-sm shadow-lg shadow-primary/20 hover:scale-[1.02] active:scale-95 transition-all flex items-center justify-center gap-2">
+            <span class="material-symbols-outlined text-lg">add</span>
+            Nova Requisição
+        </button>
+        <div class="bg-surface-container p-4 rounded-xl">
+            <div class="flex items-center justify-between mb-2">
+                <span class="text-[10px] font-bold text-on-surface-variant uppercase tracking-widest">Capacidade</span>
+                <span class="text-xs font-bold text-primary">82%</span>
+            </div>
+            <div class="w-full bg-outline-variant h-1.5 rounded-full overflow-hidden">
+                <div class="bg-primary h-full w-[82%]"></div>
+            </div>
+        </div>
+    </div>
+</aside>
+
+<!-- Main Content -->
+<main class="ml-64 mt-16 p-8 min-h-screen pb-24">
+    <!-- Header -->
+    <div class="flex items-end justify-between mb-8">
+        <div>
+            <h1 class="text-3xl font-bold text-on-surface tracking-tight">Visão Geral</h1>
+            <p class="text-sm text-on-surface-variant mt-1">Acompanhe as métricas e o fluxo do almoxarifado em tempo real.</p>
+        </div>
+        <div class="flex items-center gap-3">
+            <button class="flex items-center gap-2 text-sm font-bold text-on-surface-variant border border-outline-variant hover:bg-surface-container px-4 py-2 rounded-lg transition-colors">
+                <span class="material-symbols-outlined text-lg">calendar_today</span>
+                Hoje, 24 Out
+                <span class="material-symbols-outlined text-lg ml-2">expand_more</span>
+            </button>
+            <button class="flex items-center gap-2 text-sm font-bold text-primary bg-primary/10 hover:bg-primary/20 px-3 py-2 rounded-lg transition-colors">
+                <span class="material-symbols-outlined text-lg">download</span>
+                Relatório
+            </button>
+        </div>
+    </div>
+
+    <!-- KPIs -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+        
+        <!-- KPI 1 -->
+        <div class="bg-surface-container-lowest border border-outline-variant p-6 rounded-2xl shadow-sm hover:shadow-md transition-shadow relative overflow-hidden group">
+            <div class="absolute -right-4 -top-4 w-24 h-24 bg-primary/5 rounded-full group-hover:scale-150 transition-transform duration-500"></div>
+            <div class="relative z-10 flex items-start justify-between">
+                <div>
+                    <p class="text-[11px] font-bold text-on-surface-variant uppercase tracking-widest mb-1">Requisições (Hoje)</p>
+                    <h3 class="text-4xl font-bold text-on-surface">148</h3>
+                    <p class="text-xs text-emerald-600 mt-2 flex items-center gap-1 font-medium">
+                        <span class="material-symbols-outlined text-[14px]">trending_up</span>
+                        +12% vs ontem
+                    </p>
+                </div>
+                <div class="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center">
+                    <span class="material-symbols-outlined text-primary text-2xl">list_alt</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- KPI 2 -->
+        <div class="bg-surface-container-lowest border border-outline-variant p-6 rounded-2xl shadow-sm hover:shadow-md transition-shadow relative overflow-hidden group">
+            <div class="absolute -right-4 -top-4 w-24 h-24 bg-emerald-500/5 rounded-full group-hover:scale-150 transition-transform duration-500"></div>
+            <div class="relative z-10 flex items-start justify-between">
+                <div>
+                    <p class="text-[11px] font-bold text-on-surface-variant uppercase tracking-widest mb-1">Tempo Médio</p>
+                    <h3 class="text-4xl font-bold text-on-surface">14m</h3>
+                    <p class="text-xs text-emerald-600 mt-2 flex items-center gap-1 font-medium">
+                        <span class="material-symbols-outlined text-[14px]">trending_down</span>
+                        -3m de redução
+                    </p>
+                </div>
+                <div class="w-12 h-12 bg-emerald-50 rounded-xl flex items-center justify-center">
+                    <span class="material-symbols-outlined text-emerald-600 text-2xl">timer</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- KPI 3 -->
+        <div class="bg-error-container/20 border border-error/20 p-6 rounded-2xl shadow-sm hover:shadow-md transition-shadow relative overflow-hidden group">
+            <div class="absolute -right-4 -top-4 w-24 h-24 bg-error/5 rounded-full group-hover:scale-150 transition-transform duration-500"></div>
+            <div class="relative z-10 flex items-start justify-between">
+                <div>
+                    <p class="text-[11px] font-bold text-error uppercase tracking-widest mb-1">Itens em Baixa</p>
+                    <h3 class="text-4xl font-bold text-error">24</h3>
+                    <p class="text-xs text-error mt-2 flex items-center gap-1 font-medium">
+                        <span class="material-symbols-outlined text-[14px]">warning</span>
+                        Abaixo da reserva mínima
+                    </p>
+                </div>
+                <div class="w-12 h-12 bg-error-container rounded-xl flex items-center justify-center">
+                    <span class="material-symbols-outlined text-error text-2xl">inventory_2</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- KPI 4 -->
+        <div class="bg-surface-container-lowest border border-outline-variant p-6 rounded-2xl shadow-sm hover:shadow-md transition-shadow relative overflow-hidden group">
+            <div class="absolute -right-4 -top-4 w-24 h-24 bg-blue-500/5 rounded-full group-hover:scale-150 transition-transform duration-500"></div>
+            <div class="relative z-10 flex items-start justify-between">
+                <div>
+                    <p class="text-[11px] font-bold text-on-surface-variant uppercase tracking-widest mb-1">Separação Ativa</p>
+                    <h3 class="text-4xl font-bold text-on-surface">18</h3>
+                    <p class="text-xs text-on-surface-variant mt-2 flex items-center gap-1 font-medium">
+                        Carrinhos em movimento
+                    </p>
+                </div>
+                <div class="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center">
+                    <span class="material-symbols-outlined text-blue-600 text-2xl">conveyor_belt</span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        
+        <!-- Left Column: Charts -->
+        <div class="lg:col-span-2 space-y-8">
+            
+            <!-- Chart 1: Demanda por Setor -->
+            <div class="bg-surface-container-lowest border border-outline-variant rounded-2xl p-6 shadow-sm">
+                <div class="flex items-center justify-between mb-6">
+                    <h2 class="text-lg font-bold text-on-surface">Demanda por Setor (Hoje)</h2>
+                    <button class="text-on-surface-variant hover:bg-surface-container p-1 rounded transition-colors">
+                        <span class="material-symbols-outlined">more_vert</span>
+                    </button>
+                </div>
+                
+                <div class="space-y-5">
+                    <!-- Bar 1 -->
+                    <div>
+                        <div class="flex justify-between text-sm mb-1.5 font-medium">
+                            <span class="text-on-surface">Pronto-Socorro</span>
+                            <span class="text-on-surface-variant font-mono">45 req</span>
+                        </div>
+                        <div class="w-full bg-surface-container-high rounded-full h-2 overflow-hidden">
+                            <div class="bg-primary h-2 rounded-full" style="width: 65%"></div>
+                        </div>
+                    </div>
+                    <!-- Bar 2 -->
+                    <div>
+                        <div class="flex justify-between text-sm mb-1.5 font-medium">
+                            <span class="text-on-surface">Centro Cirúrgico</span>
+                            <span class="text-on-surface-variant font-mono">38 req</span>
+                        </div>
+                        <div class="w-full bg-surface-container-high rounded-full h-2 overflow-hidden">
+                            <div class="bg-primary/80 h-2 rounded-full" style="width: 55%"></div>
+                        </div>
+                    </div>
+                    <!-- Bar 3 -->
+                    <div>
+                        <div class="flex justify-between text-sm mb-1.5 font-medium">
+                            <span class="text-on-surface">UTI Neonatal</span>
+                            <span class="text-on-surface-variant font-mono">22 req</span>
+                        </div>
+                        <div class="w-full bg-surface-container-high rounded-full h-2 overflow-hidden">
+                            <div class="bg-primary/60 h-2 rounded-full" style="width: 35%"></div>
+                        </div>
+                    </div>
+                    <!-- Bar 4 -->
+                    <div>
+                        <div class="flex justify-between text-sm mb-1.5 font-medium">
+                            <span class="text-on-surface">Pediatria</span>
+                            <span class="text-on-surface-variant font-mono">15 req</span>
+                        </div>
+                        <div class="w-full bg-surface-container-high rounded-full h-2 overflow-hidden">
+                            <div class="bg-primary/40 h-2 rounded-full" style="width: 20%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Chart 2: Fluxo Temporal -->
+            <div class="bg-surface-container-lowest border border-outline-variant rounded-2xl p-6 shadow-sm">
+                <div class="flex items-center justify-between mb-6">
+                    <h2 class="text-lg font-bold text-on-surface">Volume de Requisições (08:00 - 18:00)</h2>
+                </div>
+                
+                <!-- Simulated Line Chart via CSS flex boxes -->
+                <div class="h-48 flex items-end justify-between gap-1 mt-4 relative">
+                    <!-- Guidelines -->
+                    <div class="absolute inset-0 flex flex-col justify-between pointer-events-none opacity-20">
+                        <div class="border-t border-outline-variant w-full"></div>
+                        <div class="border-t border-outline-variant w-full"></div>
+                        <div class="border-t border-outline-variant w-full"></div>
+                        <div class="border-t border-outline-variant w-full"></div>
+                    </div>
+                    
+                    <!-- Bars mapping the trend -->
+                    <div class="w-full bg-primary/20 hover:bg-primary/40 transition-colors rounded-t h-[20%] relative group">
+                        <div class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 bg-on-surface text-surface-lowest text-[10px] py-1 px-2 rounded opacity-0 group-hover:opacity-100 whitespace-nowrap text-white z-10">08:00 - 10</div>
+                    </div>
+                    <div class="w-full bg-primary/20 hover:bg-primary/40 transition-colors rounded-t h-[35%] relative group"></div>
+                    <div class="w-full bg-primary/20 hover:bg-primary/40 transition-colors rounded-t h-[50%] relative group"></div>
+                    <div class="w-full bg-primary/40 hover:bg-primary/60 transition-colors rounded-t h-[80%] relative group"></div>
+                    <div class="w-full bg-primary hover:bg-primary/90 transition-colors rounded-t h-[95%] relative group">
+                        <div class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 bg-on-surface text-surface-lowest text-[10px] py-1 px-2 rounded opacity-0 group-hover:opacity-100 whitespace-nowrap text-white z-10">12:00 - 45 (Pico)</div>
+                    </div>
+                    <div class="w-full bg-primary/40 hover:bg-primary/60 transition-colors rounded-t h-[60%] relative group"></div>
+                    <div class="w-full bg-primary/20 hover:bg-primary/40 transition-colors rounded-t h-[40%] relative group"></div>
+                    <div class="w-full bg-primary/20 hover:bg-primary/40 transition-colors rounded-t h-[50%] relative group"></div>
+                    <div class="w-full bg-primary/20 hover:bg-primary/40 transition-colors rounded-t h-[30%] relative group"></div>
+                    <div class="w-full bg-primary/20 hover:bg-primary/40 transition-colors rounded-t h-[20%] relative group"></div>
+                </div>
+                <div class="flex justify-between text-[10px] font-mono text-on-surface-variant mt-2 px-1">
+                    <span>08:00</span>
+                    <span>10:00</span>
+                    <span>12:00</span>
+                    <span>14:00</span>
+                    <span>16:00</span>
+                    <span>18:00</span>
+                </div>
+            </div>
+            
+        </div>
+
+        <!-- Right Column: Activity Feed -->
+        <div class="bg-surface-container-lowest border border-outline-variant rounded-2xl p-6 shadow-sm flex flex-col h-[700px]">
+            <div class="flex items-center justify-between mb-6">
+                <h2 class="text-lg font-bold text-on-surface">Atividade Recente</h2>
+                <span class="flex items-center gap-1 text-[10px] font-bold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded uppercase">
+                    <span class="w-1.5 h-1.5 bg-emerald-500 rounded-full animate-pulse"></span> AO VIVO
+                </span>
+            </div>
+
+            <div class="flex-1 overflow-y-auto custom-scrollbar pr-2 space-y-6">
+                
+                <!-- Feed Item -->
+                <div class="relative pl-6">
+                    <div class="absolute left-0 top-1 w-2 h-2 bg-primary rounded-full ring-4 ring-surface-container-lowest"></div>
+                    <div class="absolute left-1 top-3 bottom-[-24px] w-px bg-outline-variant opacity-50"></div>
+                    <p class="text-xs text-on-surface-variant font-mono mb-0.5">Agora mesmo</p>
+                    <p class="text-sm font-medium text-on-surface">Nova requisição <span class="font-bold text-primary cursor-pointer hover:underline">#REQ-2025-00855</span> recebida.</p>
+                    <p class="text-xs text-on-surface-variant mt-1 flex items-center gap-1">
+                        <span class="material-symbols-outlined text-[14px]">location_on</span> UTI Neonatal
+                    </p>
+                </div>
+
+                <!-- Feed Item -->
+                <div class="relative pl-6">
+                    <div class="absolute left-0 top-1 w-2 h-2 bg-blue-500 rounded-full ring-4 ring-surface-container-lowest"></div>
+                    <div class="absolute left-1 top-3 bottom-[-24px] w-px bg-outline-variant opacity-50"></div>
+                    <p class="text-xs text-on-surface-variant font-mono mb-0.5">Há 4 min</p>
+                    <p class="text-sm font-medium text-on-surface">Separação iniciada para <span class="font-bold cursor-pointer hover:underline">#REQ-2025-00854</span>.</p>
+                    <p class="text-xs text-on-surface-variant mt-1">Por: Almoxarife Carlos</p>
+                </div>
+
+                <!-- Feed Item -->
+                <div class="relative pl-6">
+                    <div class="absolute left-0 top-1 w-2 h-2 bg-emerald-500 rounded-full ring-4 ring-surface-container-lowest"></div>
+                    <div class="absolute left-1 top-3 bottom-[-24px] w-px bg-outline-variant opacity-50"></div>
+                    <p class="text-xs text-on-surface-variant font-mono mb-0.5">Há 12 min</p>
+                    <p class="text-sm font-medium text-on-surface">Requisição <span class="font-bold cursor-pointer hover:underline">#REQ-2025-00845</span> entregue.</p>
+                    <p class="text-xs text-on-surface-variant mt-1">Recebido por: Enf. Maria Oliveira</p>
+                </div>
+
+                <!-- Feed Item -->
+                <div class="relative pl-6">
+                    <div class="absolute left-0 top-1 w-2 h-2 bg-error rounded-full ring-4 ring-surface-container-lowest"></div>
+                    <div class="absolute left-1 top-3 bottom-[-24px] w-px bg-outline-variant opacity-50"></div>
+                    <p class="text-xs text-on-surface-variant font-mono mb-0.5">Há 28 min</p>
+                    <p class="text-sm font-medium text-on-surface">Alerta de Estoque Crítico</p>
+                    <p class="text-xs text-error mt-1">Luva Nitrílica G (Abaixo de 50cx)</p>
+                </div>
+                
+                <!-- Feed Item -->
+                <div class="relative pl-6">
+                    <div class="absolute left-0 top-1 w-2 h-2 bg-surface-variant rounded-full ring-4 ring-surface-container-lowest"></div>
+                    <p class="text-xs text-on-surface-variant font-mono mb-0.5">Há 1 hora</p>
+                    <p class="text-sm font-medium text-on-surface">Recebimento de Lote finalizado.</p>
+                    <p class="text-xs text-on-surface-variant mt-1">Fornecedor: MedCorp Distribuidora</p>
+                </div>
+
+            </div>
+            
+            <button class="mt-4 w-full py-2 text-xs font-bold text-primary hover:bg-primary/5 rounded-lg transition-colors border border-outline-variant border-dashed">
+                Carregar Mais Atividades
+            </button>
+        </div>
+
+    </div>
+</main>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        document.querySelectorAll('button, a').forEach(el => {
+            el.addEventListener('click', (e) => {
+                const isLink = el.tagName.toLowerCase() === 'a';
+                const href = el.getAttribute('href');
+                if (isLink && href && href !== '#' && !href.startsWith('javascript:')) {
+                    return; // Permite a navegação normal
+                }
+                if (el.hasAttribute('onclick')) {
+                    return; // Permite a ação já configurada
+                }
+                e.preventDefault();
+                let text = el.innerText.trim().replace(/\n/g, ' ').substring(0, 40);
+                // No alert, just log or do nothing, to keep it silent as requested.
+                // console.log('Ação ativada silenciosamente:', text);
+            });
+        });
+    });
+</script>
+
+</body>
+</html>

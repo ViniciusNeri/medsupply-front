@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="light">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MedSupply - Configurações</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-variant": "#e0e3e5",
+                        "primary-fixed": "#d4e3ff",
+                        "on-background": "#191c1e",
+                        "inverse-on-surface": "#eff1f3",
+                        "inverse-surface": "#2d3133",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-tint": "#305f9b",
+                        "on-secondary": "#ffffff",
+                        "outline": "#737781",
+                        "secondary-fixed": "#d3e4fe",
+                        "on-primary-fixed-variant": "#0e4782",
+                        "on-surface-variant": "#424750",
+                        "surface-container-low": "#f2f4f6",
+                        "surface-container-high": "#e6e8ea",
+                        "on-tertiary-container": "#65d2c5",
+                        "tertiary-fixed-dim": "#6bd8cb",
+                        "tertiary-fixed": "#89f5e7",
+                        "tertiary": "#00403a",
+                        "on-error-container": "#93000a",
+                        "primary-fixed-dim": "#a6c8ff",
+                        "surface-container-highest": "#e0e3e5",
+                        "on-tertiary-fixed": "#00201d",
+                        "primary-container": "#1b4f8a",
+                        "primary": "#00386b",
+                        "on-surface": "#191c1e",
+                        "error": "#ba1a1a",
+                        "secondary-container": "#d0e1fb",
+                        "on-secondary-fixed": "#0b1c30",
+                        "secondary-fixed-dim": "#b7c8e1",
+                        "error-container": "#ffdad6",
+                        "on-tertiary-fixed-variant": "#005049",
+                        "on-primary-container": "#9ac2ff",
+                        "inverse-primary": "#a6c8ff",
+                        "on-secondary-container": "#54647a",
+                        "on-primary-fixed": "#001c3a",
+                        "on-primary": "#ffffff",
+                        "surface-container": "#eceef0",
+                        "secondary": "#505f76",
+                        "surface-bright": "#f7f9fb",
+                        "surface": "#f7f9fb",
+                        "on-error": "#ffffff",
+                        "outline-variant": "#c2c6d1",
+                        "on-tertiary": "#ffffff",
+                        "surface-dim": "#d8dadc",
+                        "tertiary-container": "#005951",
+                        "background": "#f7f9fb",
+                        "on-secondary-fixed-variant": "#38485d"
+                    },
+                    "fontFamily": {
+                        "body-md": ["Inter"]
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-outlined.fill {
+            font-variation-settings: 'FILL' 1;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background antialiased min-h-screen flex flex-col">
+
+<!-- Header -->
+<header class="bg-surface-container-lowest border-b border-outline-variant h-16 w-full flex items-center justify-between px-6 shadow-sm sticky top-0 z-50">
+    <div class="flex items-center gap-4">
+        <a href="index.html" class="p-2 -ml-2 text-on-surface-variant hover:bg-surface-container rounded-full transition-colors flex items-center justify-center" title="Voltar para a seleção de perfil">
+            <span class="material-symbols-outlined">arrow_back</span>
+        </a>
+        <div class="flex items-center gap-2">
+            <span class="text-primary font-bold text-2xl tracking-tighter">MedSupply</span>
+        </div>
+        <div class="h-8 w-px bg-outline-variant hidden sm:block"></div>
+        <div class="flex-col hidden sm:flex">
+            <span class="text-on-surface font-semibold text-sm leading-tight">Configurações do Sistema</span>
+        </div>
+    </div>
+    
+    <div class="flex items-center gap-3">
+        <div class="flex items-center gap-3 pl-4 border-l border-outline-variant">
+            <div class="text-right hidden sm:block">
+                <p class="text-xs font-bold text-on-surface">Almoxarife Sênior</p>
+                <p class="text-[10px] text-on-surface-variant">Turno Manhã</p>
+            </div>
+            <img alt="User profile" class="w-9 h-9 rounded-full border-2 border-primary/10 object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB6iJnm_7P37aw96WA6dTFLYynXfLUhz-dtWiJKpqiG_yhFAby1qlejEruq0BgsSiR-L9-bRm8Kaad0FqWIzuWH153rhJVZW-y-2lwDpCKiTkSU-UekHFyKT27lHP8-f8iybUD-gZHjPi0JTE2gi_4kor5cBl0MmMg4-dnn_bElmxcRik3a0TwjBjPE0PbZUoSW-26FqvLXGozVGUpfVGwSIc9bjyvQqgyzBhgqt123WxmVcpcw0LqNKusvhMoMZGDnLt1pXHwz"/>
+        </div>
+    </div>
+</header>
+
+<main class="flex-1 max-w-6xl w-full mx-auto p-4 sm:p-8 flex flex-col md:flex-row gap-8">
+    
+    <!-- Sidebar Navigation -->
+    <aside class="w-full md:w-64 flex-shrink-0">
+        <nav class="space-y-2">
+            <a href="#" class="flex items-center gap-3 px-4 py-3 bg-primary/10 text-primary rounded-xl font-bold transition-all shadow-sm">
+                <span class="material-symbols-outlined text-xl">person</span>
+                Perfil do Usuário
+            </a>
+            <a href="#" class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container rounded-xl transition-colors font-medium">
+                <span class="material-symbols-outlined text-xl">palette</span>
+                Aparência
+            </a>
+            <a href="#" class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container rounded-xl transition-colors font-medium">
+                <span class="material-symbols-outlined text-xl">notifications</span>
+                Notificações
+            </a>
+            <a href="#" class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container rounded-xl transition-colors font-medium">
+                <span class="material-symbols-outlined text-xl">shield</span>
+                Segurança
+            </a>
+            <a href="#" class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container rounded-xl transition-colors font-medium mt-8 text-error hover:bg-error-container hover:text-error">
+                <span class="material-symbols-outlined text-xl">logout</span>
+                Sair da Conta
+            </a>
+        </nav>
+    </aside>
+
+    <!-- Content Area -->
+    <div class="flex-1 space-y-8">
+        
+        <!-- Profile Section -->
+        <section class="bg-surface-container-lowest border border-outline-variant rounded-2xl p-6 md:p-8 shadow-sm">
+            <h2 class="text-xl font-bold text-on-surface mb-6 flex items-center gap-2">
+                <span class="material-symbols-outlined text-primary">badge</span>
+                Informações Pessoais
+            </h2>
+            
+            <div class="flex flex-col sm:flex-row items-center sm:items-start gap-6 mb-8">
+                <div class="relative group">
+                    <img alt="User profile" class="w-24 h-24 rounded-full border-4 border-surface-container object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB6iJnm_7P37aw96WA6dTFLYynXfLUhz-dtWiJKpqiG_yhFAby1qlejEruq0BgsSiR-L9-bRm8Kaad0FqWIzuWH153rhJVZW-y-2lwDpCKiTkSU-UekHFyKT27lHP8-f8iybUD-gZHjPi0JTE2gi_4kor5cBl0MmMg4-dnn_bElmxcRik3a0TwjBjPE0PbZUoSW-26FqvLXGozVGUpfVGwSIc9bjyvQqgyzBhgqt123WxmVcpcw0LqNKusvhMoMZGDnLt1pXHwz"/>
+                    <button class="absolute bottom-0 right-0 p-2 bg-primary text-on-primary rounded-full shadow-lg hover:scale-110 transition-transform flex items-center justify-center">
+                        <span class="material-symbols-outlined text-sm">edit</span>
+                    </button>
+                </div>
+                <div class="text-center sm:text-left flex-1">
+                    <h3 class="text-lg font-bold text-on-surface">Ricardo Almeida</h3>
+                    <p class="text-sm text-on-surface-variant mb-3">ricardo.almeida@medsupply.com</p>
+                    <span class="px-3 py-1 bg-primary/10 text-primary text-xs font-bold rounded-lg uppercase tracking-wide">Almoxarife Sênior</span>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="space-y-2">
+                    <label class="text-xs font-bold text-on-surface-variant uppercase tracking-wider">Nome Completo</label>
+                    <input type="text" value="Ricardo Almeida" class="w-full bg-surface-container-low border border-outline-variant rounded-xl px-4 py-2.5 text-sm focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all">
+                </div>
+                <div class="space-y-2">
+                    <label class="text-xs font-bold text-on-surface-variant uppercase tracking-wider">Matrícula</label>
+                    <input type="text" value="MAT-89245" disabled class="w-full bg-surface-container border border-outline-variant rounded-xl px-4 py-2.5 text-sm text-on-surface-variant cursor-not-allowed">
+                </div>
+                <div class="space-y-2">
+                    <label class="text-xs font-bold text-on-surface-variant uppercase tracking-wider">Telefone Contato</label>
+                    <input type="text" value="(11) 98765-4321" class="w-full bg-surface-container-low border border-outline-variant rounded-xl px-4 py-2.5 text-sm focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all">
+                </div>
+                <div class="space-y-2">
+                    <label class="text-xs font-bold text-on-surface-variant uppercase tracking-wider">Unidade Hospitalar</label>
+                    <select class="w-full bg-surface-container-low border border-outline-variant rounded-xl px-4 py-2.5 text-sm focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all">
+                        <option>Hospital Central</option>
+                        <option>Hospital Maternidade</option>
+                        <option>Pronto Socorro Zona Sul</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="mt-8 flex justify-end">
+                <button class="bg-primary text-on-primary px-6 py-2.5 rounded-xl font-bold text-sm shadow-lg shadow-primary/20 hover:bg-primary/90 transition-colors">
+                    Salvar Alterações
+                </button>
+            </div>
+        </section>
+
+        <!-- Preferences Section -->
+        <section class="bg-surface-container-lowest border border-outline-variant rounded-2xl p-6 md:p-8 shadow-sm">
+            <h2 class="text-xl font-bold text-on-surface mb-6 flex items-center gap-2">
+                <span class="material-symbols-outlined text-primary">tune</span>
+                Preferências do Sistema
+            </h2>
+
+            <div class="space-y-6">
+                <!-- Toggle Item -->
+                <div class="flex items-center justify-between py-3 border-b border-surface-container">
+                    <div>
+                        <p class="font-bold text-sm text-on-surface">Notificações de Estoque Baixo</p>
+                        <p class="text-xs text-on-surface-variant mt-1">Receber alertas quando itens críticos atingirem o limite mínimo.</p>
+                    </div>
+                    <label class="relative inline-flex items-center cursor-pointer">
+                        <input type="checkbox" checked class="sr-only peer">
+                        <div class="w-11 h-6 bg-surface-container-high peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+                    </label>
+                </div>
+                
+                <!-- Toggle Item -->
+                <div class="flex items-center justify-between py-3 border-b border-surface-container">
+                    <div>
+                        <p class="font-bold text-sm text-on-surface">Sons do Sistema</p>
+                        <p class="text-xs text-on-surface-variant mt-1">Reproduzir efeitos sonoros em novas requisições urgentes.</p>
+                    </div>
+                    <label class="relative inline-flex items-center cursor-pointer">
+                        <input type="checkbox" checked class="sr-only peer">
+                        <div class="w-11 h-6 bg-surface-container-high peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+                    </label>
+                </div>
+
+                <!-- Select Item -->
+                <div class="flex items-center justify-between py-3">
+                    <div>
+                        <p class="font-bold text-sm text-on-surface">Tema da Interface</p>
+                        <p class="text-xs text-on-surface-variant mt-1">Escolha a aparência visual do MedSupply.</p>
+                    </div>
+                    <select class="bg-surface-container-low border border-outline-variant rounded-lg px-3 py-1.5 text-sm text-on-surface">
+                        <option>Claro (Padrão)</option>
+                        <option>Escuro</option>
+                        <option>Sincronizar com Sistema</option>
+                    </select>
+                </div>
+            </div>
+        </section>
+
+    </div>
+</main>
+
+
+</body>
+</html>
